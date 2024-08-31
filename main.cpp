@@ -3,7 +3,7 @@
 #include<iomanip> 
 using namespace std;
 
-// Structure to store information about a hotel room
+// store information about a hotel room
 struct roominfo{
     int roomnumber;
     string guestname;
@@ -12,7 +12,7 @@ struct roominfo{
     double roomrate; 
 };
 
-// Node structure for the binary search tree
+// Node structure
 struct treenode{
     roominfo data;
     treenode* left;
@@ -20,12 +20,12 @@ struct treenode{
     treenode(roominfo info):data(info),left(nullptr),right(nullptr){}
 };
 
-// Class to manage the binary search tree
+// binary search tree class
 class hotelTree{
 private:
     treenode* root;
 
-    // Helper function to insert a new node
+    // insert a new node
     treenode* insert(treenode* node,roominfo info){
         if(node==nullptr){
             return new treenode(info);
@@ -38,7 +38,7 @@ private:
         return node;
     }
 
-    // Helper function to search for a room
+    // search for a room
     treenode* search(treenode* node,int roomnumber){
         if(node==nullptr || node->data.roomnumber==roomnumber){
             return node;
@@ -50,7 +50,7 @@ private:
         }
     }
 
-    // Helper function to update room information
+    // update room information
     treenode* updateroom(treenode* node,int roomnumber,roominfo newinfo){
         if(node==nullptr){
             return nullptr;
@@ -65,7 +65,7 @@ private:
         return node;
     }
 
-    // Helper function to print the tree in-order
+    // print the tree in-order
     void inorderprint(treenode* node){
         if(node!=nullptr){
             inorderprint(node->left);
@@ -79,7 +79,7 @@ private:
         }
     }
 
-    // Helper function to display rooms by date range
+    // display rooms by date range
     void printroomsbydaterange(treenode* node,string startdate,string enddate){
         if(node!=nullptr){
             printroomsbydaterange(node->left,startdate,enddate);
@@ -98,12 +98,12 @@ private:
 public:
     hotelTree():root(nullptr){}
 
-    // Public method to insert a new room information
+    // insert a new room information
     void insertroom(roominfo info){
         root=insert(root, info);
     }
 
-    // Public method to search for a room
+    // search for a room
     void searchroom(int roomnumber){
         treenode* result=search(root,roomnumber);
         if(result!=nullptr){
@@ -118,17 +118,17 @@ public:
         }
     }
 
-    // Public method to update room information
+    // update room information
     void updateroominfo(int roomnumber,roominfo newinfo){
         root=updateroom(root,roomnumber,newinfo);
     }
 
-    // Public method to print all rooms
+    // print all rooms
     void printallrooms(){
         inorderprint(root);
     }
 
-    // Public method to display room details based on a specific date range
+    // display room details based on a specific date range
     void printroomsbydaterange(string startdate, string enddate){
         cout<<"rooms available from "<<startdate<<" to "<<enddate<<":"<<endl;
         printroomsbydaterange(root,startdate,enddate);
