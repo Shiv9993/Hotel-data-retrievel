@@ -19,9 +19,3 @@ This project is a basic Hotel Management System implemented in C++. It uses a bi
 - **`hotelTree`**: Class to manage the binary search tree, including insertion, searching, updating, and printing functions.
 - **`main`**: Entry point of the program with a menu for user interaction.
 
-## Getting Started
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/hotel-management-system.git
-   cd hotel-management-system
